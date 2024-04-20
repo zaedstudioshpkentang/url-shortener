@@ -1,0 +1,61 @@
+.container {
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-field {
+    width: calc(100% - 80px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+#progressBarContainer {
+    width: 100%;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#progressBar {
+    background-color: #4caf50;
+    width: 0%;
+    height: 4px;
+    transition: width 0.3s ease;
+}
+
+.shortened-url a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.shortened-url a:hover {
+    text-decoration: underline;
+}

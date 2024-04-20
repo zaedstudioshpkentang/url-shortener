@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <div class="input-container">
+            <input type="text" id="urlInput" placeholder="Enter your URL" class="input-field">
+            <button onclick="shortenUrl()" class="button">Shorten</button>
+        </div>
+        <div id="progressBarContainer" style="display: none;">
+            <div id="progressBar"></div>
+        </div>
+        <div id="shortenedUrl" class="shortened-url"></div>
+    </div>
+
+    <script>
+        async function shortenUrl() {
+            var longUrl = document.getElementById("urlInput").value;
+            var apiUrl = 'https://tinyurl.com/api-create.php?url=' + encodeURIComponent(longUrl);
+            var progressBarContainer = document.getElementById("progressBarContainer");
+            var progressBar = document.getElementById("progressBar");
+
+            progressBarContainer.style.display = "block";
+            progressBar.style.width = "0%";
+
+            try {
+                const response = await fetch(apiUrl);
+                if (response.ok) {
+                    const data = await response.text();
+                    document.getElementById("shortenedUrl").innerHTML = `<a href="${data}" target="_blank">${data}</a>`;
+                } else {
+                    console.error('Failed to shorten URL:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error occurred:', error);
+            } finally {
+                progressBarContainer.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
