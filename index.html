@@ -19,6 +19,8 @@
             <div id="progressBar"></div>
         </div>
         <div id="shortenedUrl" class="shortened-url"></div>
+        <!-- Copy Button will appear after shortening the URL -->
+        <button id="copyButton" style="display: none;" onclick="copyUrl()" class="button">Copy URL</button>
     </div>
 
     <script>
@@ -36,6 +38,8 @@
                 if (response.ok) {
                     const data = await response.text();
                     document.getElementById("shortenedUrl").innerHTML = `<a href="${data}" target="_blank">${data}</a>`;
+                    document.getElementById("copyButton").style.display = "inline-block"; // Show the copy button
+                    document.getElementById("copyButton").setAttribute("data-url", data); // Store the shortened URL
                 } else {
                     console.error('Failed to shorten URL:', response.statusText);
                 }
@@ -44,6 +48,15 @@
             } finally {
                 progressBarContainer.style.display = "none";
             }
+        }
+
+        function copyUrl() {
+            var urlToCopy = document.getElementById("copyButton").getAttribute("data-url");
+            navigator.clipboard.writeText(urlToCopy).then(function() {
+                alert('URL copied to clipboard!');
+            }).catch(function(error) {
+                console.error('Error copying URL:', error);
+            });
         }
     </script>
 </body>
