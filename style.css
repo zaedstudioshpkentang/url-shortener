@@ -61,9 +61,12 @@
 }
 
 #shortenedUrl {
-    margin-bottom: 15px; /* Memberikan jarak antara URL dan tombol copy */
+    margin-bottom: 20px; /* Menambah jarak antara URL dan tombol copy */
+    display: block; /* Pastikan elemen ini memulai di baris baru */
 }
 
 #copyButton {
-    margin-top: 25px; /* Memberikan jarak antara URL dan tombol copy */
+    margin-top: 20px; /* Menambah jarak antara tombol copy dan URL */
+    display: inline-block; /* Menjaga tombol tetap berada di posisi yang diinginkan */
 }
+
