@@ -59,3 +59,11 @@
 .shortened-url a:hover {
     text-decoration: underline;
 }
+
+#shortenedUrl {
+    margin-bottom: 15px; /* Memberikan jarak antara URL dan tombol copy */
+}
+
+#copyButton {
+    margin-top: 10px; /* Memberikan jarak antara URL dan tombol copy */
+}
